@@ -3,7 +3,7 @@ import styled from "styled-components";
 import CategoryItem from "./CategoryItem";
 import { DummyCat } from "../Dummy/dummyCat";
 const Container = styled.div`
-  width: 100vw;
+  width: 98vw;
   display: flex;
   align-items: center;
   gap: 30px;
