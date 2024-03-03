@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import SearchIcon from '@mui/icons-material/Search';
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const Container = styled.div`
   height: 60px;
 `;
@@ -75,7 +75,7 @@ const Navbar = () => {
         <Right>
           <RightCont>SignUp</RightCont>
           <RightCont>SignIn</RightCont>
-          <RightCont>Cart</RightCont>
+          <RightCont><ShoppingCartIcon/></RightCont>
 
         </Right>
       </Wrapper>
