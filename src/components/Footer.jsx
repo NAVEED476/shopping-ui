@@ -69,7 +69,7 @@ const ListItem = styled.li`
 
   &:hover{
     color: black;
-    font-weight: 300;
+    font-weight: 600;
   }
 `;
 
