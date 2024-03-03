@@ -3,6 +3,7 @@ import { mobile } from "../responsive";
 import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from "react-router-dom";
 const Container = styled.div`
   height: 60px;
 
@@ -83,8 +84,8 @@ const Navbar = () => {
           <Logo>NVD.</Logo>
         </Center>
         <Right>
-          <RightCont>SignUp</RightCont>
-          <RightCont>SignIn</RightCont>
+          <RightCont><Link to="/register">SignUp</Link></RightCont>
+          <RightCont><Link to="/login">SignIn</Link></RightCont>
           <RightCont>
             <ShoppingCartIcon />
           </RightCont>
