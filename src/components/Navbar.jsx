@@ -1,20 +1,29 @@
 import React from "react";
+import { mobile } from "../responsive";
 import styled from "styled-components";
-import SearchIcon from '@mui/icons-material/Search';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import SearchIcon from "@mui/icons-material/Search";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 const Container = styled.div`
   height: 60px;
+
+  ${mobile({
+    height: "50px",
+  })}
 `;
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 5px 10px;
+  padding: 10px 20px;
+
+  ${mobile({
+    padding: "10px 0px",
+  })}
 `;
 const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-evenly ;
+  justify-content: space-evenly;
 `;
 const Center = styled.div`
   flex: 1;
@@ -28,6 +37,7 @@ const Right = styled.div`
 const Language = styled.p`
   font-size: 16px;
   font-weight: 600;
+  ${mobile({ display: "none" })}
 `;
 const SearchContinaer = styled.div`
   border: 1px solid grey;
@@ -45,10 +55,10 @@ const Input = styled.input`
   width: 100%;
   padding: 10px 0px;
   font-size: 16px;
-`
+`;
 const Logo = styled.h1`
   font-weight: bold;
-`
+`;
 
 const RightCont = styled.h4`
   font-weight: bold;
@@ -56,8 +66,7 @@ const RightCont = styled.h4`
   cursor: pointer;
   margin-right: 10px;
   color: grey;
-`
-
+`;
 
 const Navbar = () => {
   return (
@@ -66,18 +75,19 @@ const Navbar = () => {
         <Left>
           <Language>EN</Language>
           <SearchContinaer>
-            <Input/>
-            <SearchIcon/>
+            <Input />
+            <SearchIcon />
           </SearchContinaer>
-          
-          
         </Left>
-        <Center><Logo>NVD.</Logo></Center>
+        <Center>
+          <Logo>NVD.</Logo>
+        </Center>
         <Right>
           <RightCont>SignUp</RightCont>
           <RightCont>SignIn</RightCont>
-          <RightCont><ShoppingCartIcon/></RightCont>
-
+          <RightCont>
+            <ShoppingCartIcon />
+          </RightCont>
         </Right>
       </Wrapper>
     </Container>
