@@ -3,6 +3,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import XIcon from '@mui/icons-material/X';
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -65,6 +66,11 @@ const ListItem = styled.li`
   list-style: none;
   margin-bottom: 10px;
   cursor: pointer;
+
+  &:hover{
+    color: black;
+    font-weight: 300;
+  }
 `;
 
 const Right = styled.div`
@@ -97,6 +103,9 @@ const Footer = () => {
           </SocialIcon>{" "}
           <SocialIcon>
             <InstagramIcon />
+          </SocialIcon>{" "}
+          <SocialIcon>
+            < XIcon/>
           </SocialIcon>{" "}
         </SocialCont>
       </Left>
