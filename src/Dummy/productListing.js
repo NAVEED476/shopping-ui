@@ -1,4 +1,4 @@
-export const popularProducts = [
+export const Products = [
     {
         id: 1,
         img: "https://images.pexels.com/photos/8029708/pexels-photo-8029708.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
