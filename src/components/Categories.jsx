@@ -10,14 +10,20 @@ const Container = styled.div`
   justify-content: center;
   flex-wrap: wrap;
 `;
+const Heading = styled.h1`
+  font-size: 24px;
+  margin-left: 20px;
+`
 const Categories = () => {
-  return (
+  return (<>
+   <Heading>Categories</Heading>
     <Container>
+     
       {DummyCat.map((item) => (
         <CategoryItem item={item} />
       ))}
     </Container>
-  );
+    </>);
 };
 
 export default Categories;
