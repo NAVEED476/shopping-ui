@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
@@ -28,16 +28,26 @@ const FilterText = styled.span`
   margin-right: 20px;
 `;
 const Select = styled.select`
-padding: 10px;
-margin-right: 10px;
+  padding: 10px;
+  margin-right: 10px;
 `;
 const Option = styled.option`
-padding: 5px;
+  padding: 5px;
 `;
 
 const ProductList = () => {
   const location = useLocation();
-  console.log(location.pathname.split("/")[2])
+  const cat = location.pathname.split("/")[2];
+  const [filters, setFilter] = useState({});
+  const [sort, setSort] = useState("newest");
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setFilter({
+      ...filters,
+      [e.target.name]: value,
+    });
+  };
   return (
     <Container>
       <Announcement />
@@ -46,10 +56,8 @@ const ProductList = () => {
       <FilterCont>
         <Filter>
           <FilterText>Filter Products</FilterText>
-          <Select>
-            <Option defaultValue={""} >
-              Colors{" "}
-            </Option>
+          <Select name="color" onChange={handleChange}>
+            <Option defaultValue={""}>Colors </Option>
             <Option>White</Option>
             <Option>Black</Option>
             <Option>Red</Option>
@@ -57,10 +65,8 @@ const ProductList = () => {
             <Option>Yellow</Option>
             <Option>Green</Option>
           </Select>
-          <Select>
-            <Option defaultValue={""}>
-              Size
-            </Option>
+          <Select name="size" onChange={handleChange}>
+            <Option defaultValue={""}>Size</Option>
             <Option>S</Option>
             <Option>X</Option>
             <Option>L</Option>
@@ -71,17 +77,18 @@ const ProductList = () => {
         </Filter>
         <Filter>
           <FilterText>Sort Products</FilterText>
-          <Select>
-            <Option defaultValue={""}>
-              Price
-            </Option>
-            <Option>Price (asc)</Option>
-            <Option>Price (desc)</Option>
-           
+          <Select
+            onChange={(e) => {
+              setSort(e.target.value)
+            }}
+          >
+            <Option value="newset">Price</Option>
+            <Option value="asc">Price (asc)</Option>
+            <Option value="desc">Price (desc)</Option>
           </Select>
         </Filter>
       </FilterCont>
-      <Products />
+      <Products  cat={cat} filters={filters} sort={sort}/>
       <NewsLetter />
       <Footer />
     </Container>

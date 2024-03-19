@@ -70,7 +70,7 @@ const ProductItem = ({ item }) => {
         <Icon>
           <FavoriteBorderOutlinedIcon />
         </Icon>
-      </Info>
+      </Info> 
     </Container>
   );
 };
