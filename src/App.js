@@ -8,32 +8,41 @@ import Register from './Pages/Register';
 import Login from './Pages/Login';
 import Cart from './Pages/Cart';
 
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, RouterProvider, redirect} from "react-router-dom";
 import NavbarRoutes from './components/NavbarRoutes';
+const user = true;
 
 const routes = createBrowserRouter([ 
   {
-    element:<NavbarRoutes/>,
-    children:[
+    element: <NavbarRoutes/>,
+    children: [
       {
-        path:"/register",
-        element:<Register/>
+        path: "/register",
+        element: <Register/>
       },
       {
-        path:"/login",
-        element:<Login/>
+        path: "/login",
+        element: user ? <redirect to="/" /> : <Login/>
       }
-    
     ]
   },
-
   {
-    path:"/",
-    element:<Home/>
+    path: "/",
+    element: <Home/>
   },
- 
-])
-
+  {
+    path: "/product/:id",
+    element: <ProductInfo/>
+  },
+  {
+    path: "/products/:women",
+    element: <ProductList/>
+  },
+  {
+    path: "/cart",
+    element: <Cart/>
+  }
+]);
 function App() {
   return (
     <RouterProvider router={routes}>

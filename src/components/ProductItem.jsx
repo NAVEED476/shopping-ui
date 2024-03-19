@@ -57,7 +57,7 @@ const Title = styled.h3``;
 const Button = styled.button``;
 const ProductItem = ({ item }) => {
   return (
-    <Container>
+    <Container key={item.id}>
       <Circle />
       <Image src={item.img} />
       <Info>
@@ -71,8 +71,6 @@ const ProductItem = ({ item }) => {
           <FavoriteBorderOutlinedIcon />
         </Icon>
       </Info>
-      {/* <Title>{item.title}</Title>
-      <Button>Shop Now</Button> */}
     </Container>
   );
 };

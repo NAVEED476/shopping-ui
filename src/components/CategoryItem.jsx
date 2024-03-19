@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 const Container = styled.div`
   width: 300px;
@@ -41,6 +42,7 @@ const Button = styled.button`
 `;
 const CategoryItem = ({ item }) => {
   return (
+    <Link to={`products/${item.cat}`}>
     <Container key={item.id}>
       <Image src={item.img} />
       <Info>
@@ -48,6 +50,7 @@ const CategoryItem = ({ item }) => {
         <Button>Shop Now</Button>
       </Info>
     </Container>
+    </Link>
   );
 };
 

@@ -5,7 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
 const Container = styled.div`
-  height: 60px;
+  height: 80px;
 
   ${mobile({
     height: "50px",
@@ -14,7 +14,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 0px 20px;
 
   ${mobile({
     padding: "10px 0px",
@@ -43,7 +43,6 @@ const Language = styled.p`
 const SearchContinaer = styled.div`
   border: 1px solid grey;
   box-sizing: border-box;
-  box-shadow: rgba(1, 1, 1, 0.35) 0px 5px 10px;
   margin-left: 25px;
   padding: 0px;
   width: 70%;
@@ -56,6 +55,7 @@ const Input = styled.input`
   width: 100%;
   padding: 10px 0px;
   font-size: 16px;
+
 `;
 const Logo = styled.h1`
   font-weight: bold;
@@ -85,7 +85,7 @@ const Navbar = () => {
         </Center>
         <Right>
           <RightCont><Link to="/register">SignUp</Link></RightCont>
-          <RightCont><Link to="/login">SignIn</Link></RightCont>
+          <RightCont><Link to="/">SignIn</Link></RightCont>
           <RightCont>
             <ShoppingCartIcon />
           </RightCont>

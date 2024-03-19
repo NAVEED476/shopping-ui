@@ -5,9 +5,9 @@ import Announcement from "../components/Announcement";
 import Products from "../components/Products";
 import NewsLetter from "../components/NewsLetter";
 import Footer from "../components/Footer";
+import { useLocation } from "react-router-dom";
 const Container = styled.div`
   padding: 20px;
-  display: flex;
   align-items: center;
   justify-content: space-between;
 `;
@@ -36,8 +36,10 @@ padding: 5px;
 `;
 
 const ProductList = () => {
+  const location = useLocation();
+  console.log(location.pathname.split("/")[2])
   return (
-    <container>
+    <Container>
       <Announcement />
       <Navbar />
       <Title>Dresses</Title>
@@ -45,7 +47,7 @@ const ProductList = () => {
         <Filter>
           <FilterText>Filter Products</FilterText>
           <Select>
-            <Option disabled selected>
+            <Option defaultValue={""} >
               Colors{" "}
             </Option>
             <Option>White</Option>
@@ -56,7 +58,7 @@ const ProductList = () => {
             <Option>Green</Option>
           </Select>
           <Select>
-            <Option disabled selected>
+            <Option defaultValue={""}>
               Size
             </Option>
             <Option>S</Option>
@@ -70,7 +72,7 @@ const ProductList = () => {
         <Filter>
           <FilterText>Sort Products</FilterText>
           <Select>
-            <Option disabled selected>
+            <Option defaultValue={""}>
               Price
             </Option>
             <Option>Price (asc)</Option>
@@ -82,7 +84,7 @@ const ProductList = () => {
       <Products />
       <NewsLetter />
       <Footer />
-    </container>
+    </Container>
   );
 };
 
