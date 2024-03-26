@@ -25,7 +25,9 @@ const Products = ({ cat, filters, sort }) => {
     const getProducts = async () => {
       try {
         const res = await axios.get(
-          "https://shopping-microservice.onrender.com/api/product/"
+          cat
+            ? `https://shopping-microservice.onrender.com/api/product?category=${cat}`
+            : "https://shopping-microservice.onrender.com/api/product"
         );
         setProductList(res.data);
       } catch (err) {
@@ -34,13 +36,47 @@ const Products = ({ cat, filters, sort }) => {
     };
     getProducts();
   }, [cat]);
+
+  useEffect(() => {
+    cat &&
+      setFilteredProducts((prevProducts) =>
+        productList.filter((item) =>
+          Object.entries(filters).every(([key, value]) =>
+            item[key].includes(value)
+          )
+        )
+      );
+  }, [productList, cat, filters]);
+
+  useEffect(() => {
+    if (sort === "newest") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.createdAt - b.createdAt)
+      );
+    } else if (sort === "asc") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.price - b.price)
+      );
+    } else if (sort === "desc") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => b.price - a.price)
+      );
+    }
+  }, [sort]);
+
+  console.log(filteredProducts);
+
   return (
-    <>b
+    <>
       <Heading> Popular Products</Heading>
       <Container>
-        {productList.map((item) => {
-          return <ProductItem item={item} />;
-        })}
+        {cat
+          ? filteredProducts.map((item) => (
+              <ProductItem item={item} key={item.id} />
+            ))
+          : productList.map((item) => (
+              <ProductItem item={item} key={item.id} />
+            ))}
       </Container>
     </>
   );

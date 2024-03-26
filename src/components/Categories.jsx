@@ -20,7 +20,7 @@ const Categories = () => {
     <Container>
      
       {DummyCat.map((item) => (
-        <CategoryItem item={item} />
+        <CategoryItem item={item} key={item.id} />
       ))}
     </Container>
     </>);

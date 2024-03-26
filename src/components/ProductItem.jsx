@@ -21,8 +21,9 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   object-fit: cover;
-  padding: 5px;
+  padding: 2px;
   position: relative;
+  margin: 0;
 
   &:hover ${Info} {
     opacity: 1;
@@ -33,7 +34,6 @@ const Image = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
-  margin-right: 10px;
 `;
 
 const Icon = styled.div`
