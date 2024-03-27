@@ -64,7 +64,6 @@ const Register = () => {
           <Input type="text" placeholder="Email" />
           <Input type="text" placeholder="Phone Number" />
           <Input type="password" placeholder="Password" />
-          {/* <Input type="password" placeholder="Confirm Password" /> */}
           <Agreement>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
             incidunt. Distinctio quisquam quia neque non doloremque sit in quis
