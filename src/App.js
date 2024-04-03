@@ -22,7 +22,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/login",
-        element: user ? <redirect to="/" /> : <Login/>
+        element:<Login/>
       }
     ]
   },

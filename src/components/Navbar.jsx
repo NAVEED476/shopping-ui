@@ -85,9 +85,11 @@ const Navbar = () => {
         </Center>
         <Right>
           <RightCont><Link to="/register">SignUp</Link></RightCont>
-          <RightCont><Link to="/">SignIn</Link></RightCont>
+          <RightCont><Link to="/login">SignIn</Link></RightCont>
           <RightCont>
+            <Link to="/cart">
             <ShoppingCartIcon />
+            </Link>
           </RightCont>
         </Right>
       </Wrapper>
