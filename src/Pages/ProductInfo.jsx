@@ -114,7 +114,7 @@ const ProductInfo = () => {
           <Image src="https://images.pexels.com/photos/10139621/pexels-photo-10139621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
         </ImageCont>
         <InfoCont>
-          <Title>Naveed pepe jeans fosjdfh</Title>
+          <Title>Naveed pepe jeans</Title>
           <Desc>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo veniam
             perferendis dolorum dolore autem temporibus ipsam totam nemo itaque
