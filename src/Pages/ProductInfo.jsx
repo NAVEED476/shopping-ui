@@ -2,10 +2,12 @@ import Announcement from "../components/Announcement";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import NewsLetter from "../components/NewsLetter";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 50px;
@@ -105,13 +107,25 @@ border: 2px solid teal;
 `
 
 const ProductInfo = () => {
+  const location = useLocation();
+  const id = location.pathname.split("/")[2]
+  const [product, setProduct] = useState({});
+
+  useEffect(()=>{
+
+    async function getProductInfo(){
+  
+    }
+    getProductInfo();
+  },[id])
+  console.log(product);
   return (
     <Container>
       <Announcement />
       <Navbar />
       <Wrapper>
         <ImageCont>
-          <Image src="https://images.pexels.com/photos/10139621/pexels-photo-10139621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+          <Image />
         </ImageCont>
         <InfoCont>
           <Title>Naveed pepe jeans</Title>
