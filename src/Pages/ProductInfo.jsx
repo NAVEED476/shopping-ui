@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import styled from "styled-components";
+import {publicRequest} from "../functions/requestMethods"
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 const Container = styled.div``;
@@ -109,33 +110,35 @@ border: 2px solid teal;
 const ProductInfo = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2]
+  const [loading,setLoading] = useState(false)
   const [product, setProduct] = useState({});
 
   useEffect(()=>{
 
     async function getProductInfo(){
+      setLoading(true)
+      const res = await publicRequest.get(`https://shopping-microservice.onrender.com/api/product/${id}`)
+      // const data =await res.json();
+      setLoading(false)
+      setProduct(res.data)
   
     }
     getProductInfo();
   },[id])
   console.log(product);
-  return (
-    <Container>
+  return (<>
+    { loading ? <h1>Loading...</h1> : <Container>
       <Announcement />
       <Navbar />
       <Wrapper>
         <ImageCont>
-          <Image />
+          <Image src={product.img}/>
         </ImageCont>
         <InfoCont>
-          <Title>Naveed pepe jeans</Title>
-          <Desc>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo veniam
-            perferendis dolorum dolore autem temporibus ipsam totam nemo itaque
-            similique, odit magni! Ipsa neque, sapiente quis pariatur minus
-            repudiandae nesciunt!
+          <Title>{product.title}</Title>
+          <Desc>{product.desc}
           </Desc>
-          <Price>$200</Price>
+          <Price>{product.price}</Price>
 
           <FilterContainer>
             <Filter>
@@ -170,8 +173,9 @@ const ProductInfo = () => {
       </Wrapper>
       <NewsLetter />
       <Footer />
-    </Container>
-  );
+    </Container>}
+    
+ </> );
 };
 
 export default ProductInfo;

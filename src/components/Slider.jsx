@@ -87,7 +87,7 @@ const Slider = () => {
   const [slidestate, setSlideState] = useState(0);
 
   const handleClick = (direction) => {
-    console.log(direction)
+    // console.log(direction)
     if (direction === "left") {
       setSlideState(slidestate > 0 ? slidestate - 1 : sliderData.length - 1);
     } else {

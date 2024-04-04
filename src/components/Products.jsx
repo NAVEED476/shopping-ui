@@ -17,7 +17,6 @@ const Heading = styled.h1`
   font-size: 24px;
 `;
 const Products = ({ cat, filters, sort }) => {
-  console.log(cat, filters, sort);
   const [productList, setProductList] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
@@ -64,7 +63,7 @@ const Products = ({ cat, filters, sort }) => {
     }
   }, [sort]);
 
-  console.log(filteredProducts);
+  // console.log(filteredProducts);
 
   return (
     <>
