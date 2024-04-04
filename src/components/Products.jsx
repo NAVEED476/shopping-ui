@@ -18,18 +18,22 @@ const Heading = styled.h1`
 `;
 const Products = ({ cat, filters, sort }) => {
   const [productList, setProductList] = useState([]);
+  const [Loading,setLoading] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
+      setLoading(true);
       try {
         const res = await axios.get(
           cat
             ? `https://shopping-microservice.onrender.com/api/product?category=${cat}`
             : "https://shopping-microservice.onrender.com/api/product"
         );
+        setLoading(false)
         setProductList(res.data);
       } catch (err) {
+        setLoading(false)
         console.log(err);
       }
     };

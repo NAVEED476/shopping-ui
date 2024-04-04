@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
@@ -57,7 +57,28 @@ const Icon = styled.div`
 const Title = styled.h3``;
 const Button = styled.button``;
 const ProductItem = ({ item }) => {
+  const [loading,setLoading] = useState(false);
   return (
+    <>
+    {
+      loading ?  <Container key={item.id}>
+      <Circle />
+      <Image  />
+      <Info>
+        <Icon>
+          <ShoppingCartOutlinedIcon />
+        </Icon>
+        <Icon>
+          <Link >
+          <SearchOutlinedIcon />
+          </Link>
+        </Icon>
+        <Icon>
+          <FavoriteBorderOutlinedIcon />
+        </Icon>
+      </Info> 
+    </Container> :
+  
     <Container key={item.id}>
       <Circle />
       <Image src={item.img} />
@@ -74,8 +95,8 @@ const ProductItem = ({ item }) => {
           <FavoriteBorderOutlinedIcon />
         </Icon>
       </Info> 
-    </Container>
-  );
+    </Container>}
+    </>);
 };
 
 export default ProductItem;
