@@ -1,7 +1,7 @@
 export const sliderData = [
     {
         id: "1",
-        img: "https://images.pexels.com/photos/748870/pexels-photo-748870.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        img: "https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         title: "SUMMER SALE",
         desc: "Hey this is summer sale checkout for best deals",
         bgColor: "#ffcc00" // Yellow background color

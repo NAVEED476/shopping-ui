@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 const Info = styled.div`
   opacity: 0;
   width: 100%;
@@ -57,46 +57,48 @@ const Icon = styled.div`
 const Title = styled.h3``;
 const Button = styled.button``;
 const ProductItem = ({ item }) => {
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   return (
     <>
-    {
-      loading ?  <Container key={item.id}>
-      <Circle />
-      <Image  />
-      <Info>
-        <Icon>
-          <ShoppingCartOutlinedIcon />
-        </Icon>
-        <Icon>
-          <Link >
-          <SearchOutlinedIcon />
-          </Link>
-        </Icon>
-        <Icon>
-          <FavoriteBorderOutlinedIcon />
-        </Icon>
-      </Info> 
-    </Container> :
-  
-    <Container key={item.id}>
-      <Circle />
-      <Image src={item.img} />
-      <Info>
-        <Icon>
-          <ShoppingCartOutlinedIcon />
-        </Icon>
-        <Icon>
-          <Link to={`/product/${item._id}`}>
-          <SearchOutlinedIcon />
-          </Link>
-        </Icon>
-        <Icon>
-          <FavoriteBorderOutlinedIcon />
-        </Icon>
-      </Info> 
-    </Container>}
-    </>);
+      {loading ? (
+        <Container key={item.id}>
+          <Circle />
+          <Image />
+          <Info>
+            <Icon>
+              <ShoppingCartOutlinedIcon />
+            </Icon>
+            <Icon>
+              <Link>
+                <SearchOutlinedIcon />
+              </Link>
+            </Icon>
+            <Icon>
+              <FavoriteBorderOutlinedIcon />
+            </Icon>
+          </Info>
+        </Container>
+      ) : (
+        <Container key={item.id}>
+          <Circle />
+          <Image src={item.img} />
+          <Info>
+            <Icon>
+              <ShoppingCartOutlinedIcon />
+            </Icon>
+            <Icon>
+              <Link to={`/product/${item._id}`}>
+                <SearchOutlinedIcon />
+              </Link>
+            </Icon>
+            <Icon>
+              <FavoriteBorderOutlinedIcon />
+            </Icon>
+          </Info>
+        </Container>
+      )}
+    </>
+  );
 };
 
 export default ProductItem;
